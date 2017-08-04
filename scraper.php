@@ -24,6 +24,7 @@
 	// called "data".3
 	require 'scraperwiki.php';
 	require 'scraperwiki/simple_html_dom.php';
+	require 'simple_html_dom.php';
 	$Alpha	=	array('AB');
 	$url = 'http://islamabadexcise.gov.pk/VEH_REG/VEH_QUERY.asp?X=';
 	for ($outterloop = 0; $outterloop < sizeof($Alpha); $outterloop++) 
