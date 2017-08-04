@@ -28,7 +28,7 @@
 	$url = 'http://islamabadexcise.gov.pk/VEH_REG/VEH_QUERY.asp?X=';
 	for ($outterloop = 0; $outterloop < sizeof($Alpha); $outterloop++) 
 		{
-			for ($innerloop = 101; $innerloop <103; $innerloop++) 
+			for ($innerloop = 100; $innerloop <10000; $innerloop++) 
 			{
 				$NewLink	=	$url . $Alpha[$outterloop] . '&Y=' . $innerloop;
 				$html 		= file_get_html($NewLink);
@@ -43,8 +43,8 @@
 						echo $chassis_no	= $element->find("tr/td[2]/font" ,8)->plaintext;
 						echo $engine_no 	= $element->find("tr/td[2]/font" ,10)->plaintext;
 						echo $owner 		= $element->find("tr/td[2]/font" ,12)->plaintext;
-						echo $sw 		= $element->find("tr/td[2]/font" ,14)->plaintext;
-						echo $type 		= $element->find("tr/td[2]/font" ,16)->plaintext; 
+						echo $sw 			= $element->find("tr/td[2]/font" ,14)->plaintext;
+						echo $type 			= $element->find("tr/td[2]/font" ,16)->plaintext; 
 						echo $NewLink;
 						if($reg_no != null)
 						{
