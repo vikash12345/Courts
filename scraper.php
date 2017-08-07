@@ -33,7 +33,7 @@ for ($innerloop = 100; $innerloop <10000; $innerloop++)
 $NewLink	=	$url . $Alpha[$outterloop] . '&Y=' . $innerloop;
 $html 		= file_get_html($NewLink);
 foreach($html->find("/html/body/div/table/tbody/tr[1]/td/form/table/tbody/tr[7]/td/table/tbody") as $element)
-{
+{	
 	if($element)
 	{
 		 $reg_no 		= $element->find("tr/td[2]/font" ,1)->plaintext;
@@ -45,10 +45,11 @@ foreach($html->find("/html/body/div/table/tbody/tr[1]/td/form/table/tbody/tr[7]/
 		 $owner 		= $element->find("tr/td[2]/font" ,12)->plaintext;
 		 $sw 			= $element->find("tr/td[2]/font" ,14)->plaintext;
 		 $type 			= $element->find("tr/td[2]/font" ,16)->plaintext; 
-		 
+		 echo "$reg_no...\n";
+  		sleep(1);
 		if($reg_no != null)
 		{
-				scraperwiki::save_sqlite(array('name'), array('name' => $reg_no , 'regdate' => $reg_date, 'maker' => $maker, 'model' => $model, 'chas' => $chassis_no, 'engine' => $engine_no, 'owner' => $owner, 'sw' => $sw, 'type' => $type, 'link' => $NewLink));
+				scraperwiki::save_sqlite(array('reg'), array('reg' => $reg_no , 'regdate' => $reg_date, 'maker' => $maker, 'model' => $model, 'chas' => $chassis_no, 'engine' => $engine_no, 'owner' => $owner, 'sw' => $sw, 'type' => $type, 'link' => $NewLink));
 		}
 	}
 	
